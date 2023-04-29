@@ -15,4 +15,4 @@ spring:
 
 mybatis:
   mapper-locations: mapper/**/*.xml
-#  type-aliases-package:
+  type-aliases-package: com.ssafy.rualone.domain.*
