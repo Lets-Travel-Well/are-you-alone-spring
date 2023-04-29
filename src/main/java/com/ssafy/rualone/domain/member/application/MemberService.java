@@ -2,10 +2,13 @@ package com.ssafy.rualone.domain.member.application;
 
 import com.ssafy.rualone.domain.member.dto.Member;
 import com.ssafy.rualone.domain.member.dto.request.MemberCreateRequest;
+import com.ssafy.rualone.domain.member.dto.response.MemberResponse;
+
+import java.util.Optional;
 
 public interface MemberService {
     Member join(MemberCreateRequest memberCreateRequest);
-//    Optional<Member> findById(Long id);
+    Member findById(String loginId);
 //    Member modify(Member member);
 //    void delete(Long id);
 }
