@@ -9,5 +9,4 @@ public class RualoneApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(RualoneApplication.class, args);
 	}
-
 }
