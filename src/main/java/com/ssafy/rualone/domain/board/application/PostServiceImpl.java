@@ -24,7 +24,7 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public Post findById(Long id) throws Exception {
-        return null;
+        return postMapper.findById(id);
     }
 
     @Override

@@ -33,10 +33,10 @@ public class PostApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PostDetailResponse> findById(@PathVariable("id") Long id){
+    public ResponseEntity<PostDetailResponse> findById(@PathVariable("id") Long id) throws Exception {
         log.info("findById call");
 
-        return null;
+        return new ResponseEntity<>(new PostDetailResponse(postService.findById(id)), HttpStatus.OK);
     }
 
     @GetMapping()

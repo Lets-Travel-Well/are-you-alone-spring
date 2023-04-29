@@ -1,7 +1,11 @@
 package com.ssafy.rualone.domain.board.dto.response;
 
 import com.ssafy.rualone.domain.board.Post;
+import lombok.Getter;
+import lombok.ToString;
 
+@ToString
+@Getter
 public class PostDetailResponse {
     private Long id;
     private Long memberId;

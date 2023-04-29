@@ -15,8 +15,16 @@
         insert into post (member_id, subject, content, hit)
         values (#{memberId}, #{subject}, #{content}, #{hit})
     </insert>
+    
+    <select id="findById" parameterType="long" resultType="post">
+        select *
+        from post
+        where id = #{id}
+    </select>
+    
     <select id="findAll" resultType="post">
         select *
         from post
     </select>
+
 </mapper>
