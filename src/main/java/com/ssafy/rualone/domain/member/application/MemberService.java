@@ -9,6 +9,7 @@ import com.ssafy.rualone.domain.member.dto.response.MemberResponse;
 import java.util.Optional;
 
 public interface MemberService {
+    int checkLoginId(String loginId);
     void join(MemberCreateRequest memberCreateRequest);
     Member findById(String loginId);
     void modify(MemberModifyRequest memberModifyRequest);

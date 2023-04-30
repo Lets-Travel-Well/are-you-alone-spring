@@ -19,6 +19,12 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class MemberApi {
     private final MemberService memberService;
+
+    @GetMapping("/check/{loginId}")
+    public ResponseEntity<Boolean> checkLoginId(@PathVariable("loginId") String loginId){
+        Boolean result = memberService.checkLoginId(loginId)==1;
+        return new ResponseEntity<Boolean>(result, HttpStatus.OK);
+    }
     @PostMapping("/join")
     public ResponseEntity<Void> join(@RequestBody MemberCreateRequest memberCreateRequest){
         memberService.join(memberCreateRequest);

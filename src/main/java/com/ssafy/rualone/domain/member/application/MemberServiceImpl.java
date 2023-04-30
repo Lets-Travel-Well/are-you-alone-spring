@@ -18,6 +18,12 @@ public class MemberServiceImpl implements  MemberService{
     private final MemberMapper memberMapper;
 
     @Override
+    public int checkLoginId(String loginId) {
+        int cnt = memberMapper.checkLoginId(loginId);
+        return cnt;
+    }
+
+    @Override
     public void join(MemberCreateRequest memberCreateRequest) {
         Member joinMember = memberCreateRequest.toEntity();
         memberMapper.join(joinMember);

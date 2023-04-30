@@ -15,11 +15,11 @@
         <result column="footage" property="footage"/>
     </resultMap>
 
-    <!--	<select id="idCheck" parameterType="String" resultType="int">-->
-    <!--		select count(user_id)-->
-    <!--		from members-->
-    <!--		where user_id = #{userid}-->
-    <!--	</select>-->
+    	<select id="checkLoginId" parameterType="String" resultType="int">
+    		select count(login_id)
+    		from member
+    		where login_id = #{loginId}
+    	</select>
 
     <insert id="join" parameterType="member">
         insert into member (login_id, name, password, hashCode, email, domain)
