@@ -21,9 +21,9 @@ public class MemberApi {
     private final MemberService memberService;
 
     @PostMapping("/join")
-    public ResponseEntity<?> join(@RequestBody MemberCreateRequest memberCreateRequest){
-        Member createMember = memberService.join(memberCreateRequest);
-        return new ResponseEntity<Member>(createMember, HttpStatus.OK);
+    public ResponseEntity<Void> join(@RequestBody MemberCreateRequest memberCreateRequest){
+        memberService.join(memberCreateRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
     }
     @GetMapping("/user/{loginId}")
     public ResponseEntity<MemberResponse> findMemberByLoginId(@PathVariable("loginId") String loginId){

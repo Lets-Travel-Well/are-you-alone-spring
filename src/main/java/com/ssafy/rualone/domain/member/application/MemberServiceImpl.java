@@ -18,10 +18,9 @@ public class MemberServiceImpl implements  MemberService{
     private final MemberMapper memberMapper;
 
     @Override
-    public Member join(MemberCreateRequest memberCreateRequest) {
+    public void join(MemberCreateRequest memberCreateRequest) {
         Member joinMember = memberCreateRequest.toEntity();
         memberMapper.join(joinMember);
-        return joinMember;
     }
 
     @Override
