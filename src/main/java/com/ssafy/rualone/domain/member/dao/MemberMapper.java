@@ -9,6 +9,6 @@ import java.util.Optional;
 public interface MemberMapper {
     void join(Member member);
     Member findByLoginId(String loginId);
-//    Member modify(Member member);
+    void modify(Member member);
 //    void delete(Long id);
 }

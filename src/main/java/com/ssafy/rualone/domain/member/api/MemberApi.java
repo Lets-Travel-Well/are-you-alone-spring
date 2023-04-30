@@ -3,7 +3,10 @@ package com.ssafy.rualone.domain.member.api;
 import com.ssafy.rualone.domain.member.dto.Member;
 import com.ssafy.rualone.domain.member.application.MemberService;
 import com.ssafy.rualone.domain.member.dto.request.MemberCreateRequest;
+import com.ssafy.rualone.domain.member.dto.request.MemberModifyRequest;
+import com.ssafy.rualone.domain.member.dto.request.MemberUpdateRequest;
 import com.ssafy.rualone.domain.member.dto.response.MemberResponse;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -22,11 +25,14 @@ public class MemberApi {
         Member createMember = memberService.join(memberCreateRequest);
         return new ResponseEntity<Member>(createMember, HttpStatus.OK);
     }
-
     @GetMapping("/user/{loginId}")
     public ResponseEntity<MemberResponse> findMemberByLoginId(@PathVariable("loginId") String loginId){
         MemberResponse loginMember = new MemberResponse(memberService.findById(loginId));
         return new ResponseEntity<MemberResponse>(loginMember,HttpStatus.OK);
     }
-
+    @PutMapping("/modify")
+    public ResponseEntity<Void> modify(@RequestBody MemberModifyRequest memberModifyRequest){
+        memberService.modify(memberModifyRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
 }
