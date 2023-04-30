@@ -10,5 +10,5 @@ public interface MemberMapper {
     void join(Member member);
     Member findByLoginId(String loginId);
     void modify(Member member);
-//    void delete(Long id);
+    void delete(String loginId);
 }

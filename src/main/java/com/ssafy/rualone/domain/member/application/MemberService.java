@@ -12,5 +12,5 @@ public interface MemberService {
     void join(MemberCreateRequest memberCreateRequest);
     Member findById(String loginId);
     void modify(MemberModifyRequest memberModifyRequest);
-//    void delete(Long id);
+    void delete(String loginId);
 }

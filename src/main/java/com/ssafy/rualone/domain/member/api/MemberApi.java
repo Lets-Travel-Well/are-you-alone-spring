@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class MemberApi {
     private final MemberService memberService;
-
     @PostMapping("/join")
     public ResponseEntity<Void> join(@RequestBody MemberCreateRequest memberCreateRequest){
         memberService.join(memberCreateRequest);
@@ -33,6 +32,11 @@ public class MemberApi {
     @PutMapping("/modify")
     public ResponseEntity<Void> modify(@RequestBody MemberModifyRequest memberModifyRequest){
         memberService.modify(memberModifyRequest);
+        return new ResponseEntity<Void>(HttpStatus.OK);
+    }
+    @DeleteMapping("/user/{loginId}")
+    public ResponseEntity<Void> delete(@PathVariable("loginId")String loginId){
+        memberService.delete(loginId);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
 }

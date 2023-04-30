@@ -46,6 +46,10 @@
         where login_id = #{loginId}
     </update>
 
+    <delete id="delete" parameterType="String">
+        delete from member
+        where login_id = #{loginId}
+    </delete>
 
     <!--	-->
     <!--	&lt;!&ndash; ADMIN &ndash;&gt;-->
@@ -63,9 +67,6 @@
     <!--	-->
 
     <!--	-->
-    <!--	<delete id="deleteMember" parameterType="String">-->
-    <!--		delete from members-->
-    <!--		where user_id = #{userId}-->
-    <!--	</delete>-->
+
 
 </mapper>

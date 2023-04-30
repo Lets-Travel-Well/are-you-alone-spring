@@ -34,4 +34,9 @@ public class MemberServiceImpl implements  MemberService{
         Member modifyMember = memberModifyRequest.toEntity();
         memberMapper.modify(modifyMember);
     }
+
+    @Override
+    public void delete(String loginId) {
+        memberMapper.delete(loginId);
+    }
 }
