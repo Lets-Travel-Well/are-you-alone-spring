@@ -5,6 +5,7 @@ import com.ssafy.rualone.domain.board.dto.request.PostCreateRequest;
 import com.ssafy.rualone.domain.board.dto.request.PostUpdateRequest;
 import com.ssafy.rualone.domain.board.dto.response.PostDetailResponse;
 import com.ssafy.rualone.domain.board.dto.response.PostResponse;
+import com.ssafy.rualone.global.api.ApiResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static com.ssafy.rualone.global.api.ApiResult.OK;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/board-management/post")
@@ -22,13 +25,13 @@ public class PostApi {
     private final PostService postService;
 
     @PostMapping()
-    public ResponseEntity<Void> save(@RequestBody PostCreateRequest postCreateRequest) throws Exception {
+    public ApiResult<Void> save(@RequestBody PostCreateRequest postCreateRequest) throws Exception {
         log.info("save");
         log.info(postCreateRequest.toString());
         // TODO : 멤버 완성 되면 넣기
         Long memberID = 0L;
         postService.save(postCreateRequest, memberID);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return OK(null);
     }
 
     @GetMapping("/{id}")
@@ -48,17 +51,17 @@ public class PostApi {
     }
 
     @PutMapping()
-    public ResponseEntity<Void> modify(@RequestBody PostUpdateRequest postUpdateRequest) throws Exception {
+    public ApiResult<Void> modify(@RequestBody PostUpdateRequest postUpdateRequest) throws Exception {
         log.info("modify");
         Long memberId = 0L;
         postService.updatePost(postUpdateRequest, memberId);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return OK(null);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
+    public ApiResult<Void> delete(@PathVariable("id") Long id) throws Exception{
         log.info("delete");
         postService.deletePost(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return OK(null);
     }
 }
