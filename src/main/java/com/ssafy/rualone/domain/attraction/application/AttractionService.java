@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface AttractionService {
     List<AttractionInfo> findAllByCriteria(String sidoCode, String gugunCode, String contentTypeId);
-
-    List<Gugun> findGugunBySido(int sidoCode);
-
     List<Sido> findSido();
+    List<Gugun> findGugunBySido(int sidoCode);
 }

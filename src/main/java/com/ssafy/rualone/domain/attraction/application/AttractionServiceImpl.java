@@ -20,14 +20,12 @@ public class AttractionServiceImpl implements AttractionService{
     public List<AttractionInfo> findAllByCriteria(String sidoCode, String gugunCode, String contentTypeId) {
         return null;
     }
-
-    @Override
-    public List<Gugun> findGugunBySido(int sidoCode) {
-        return null;
-    }
-
     @Override
     public List<Sido> findSido() {
         return attractionMapper.findAllSido();
+    }
+    @Override
+    public List<Gugun> findGugunBySido(int sidoCode) {
+        return attractionMapper.findGugunBySido(sidoCode);
     }
 }
