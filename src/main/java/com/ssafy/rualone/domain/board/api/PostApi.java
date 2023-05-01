@@ -35,19 +35,19 @@ public class PostApi {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<PostDetailResponse> findById(@PathVariable("id") Long id) throws Exception {
+    public ApiResult<PostDetailResponse> findById(@PathVariable("id") Long id) throws Exception {
         log.info("findById call");
 
-        return new ResponseEntity<>(new PostDetailResponse(postService.findById(id)), HttpStatus.OK);
+        return OK(new PostDetailResponse(postService.findById(id)));
     }
 
     @GetMapping()
-    public ResponseEntity<List<PostResponse>> findAll() throws Exception {
+    public ApiResult<List<PostResponse>> findAll() throws Exception {
         log.info("findAll");
         List<PostResponse> list = postService.findAll().stream()
                 .map(PostResponse::new)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        return OK(list);
     }
 
     @PutMapping()
