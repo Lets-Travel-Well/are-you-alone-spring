@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
 	<div class="container-fluid">
 		<a class="navbar-brand" id="home" type="button"
@@ -10,18 +14,18 @@
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link active text-light" 
+				<li class="nav-item"><a class="nav-link active"
 					aria-current="page" id="notification" href="javascript:alert('준비중입니다.');">공지사항</a>
 				</li>
-				<li class="nav-item"><a class="nav-link active text-light"
+				<li class="nav-item"><a class="nav-link active"
 					href="javascript:alert('준비중입니다.');">문의사항</a></li>
-				<li class="nav-item"><a class="nav-link active text-light" id="board" type="button"
+				<li class="nav-item"><a class="nav-link active" id="board" type="button"
 					>게시판</a></li>
 				<li class="nav-item"><a
-					class="nav-link active text-light disableBtn" id="mypage" type="button"
+					class="nav-link active disableBtn" id="mypage" type="button"
 					>마이 페이지</a></li>
 					<li class="nav-item"><a type="button"
-					class="nav-link active text-light disableBtn" id="attraction"
+					class="nav-link active disableBtn" id="attraction"
 					>관광지 검색</a></li>
 			</ul>
 			<form class="d-flex" role="search">
