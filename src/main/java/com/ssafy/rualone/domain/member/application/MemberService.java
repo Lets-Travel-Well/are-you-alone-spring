@@ -1,12 +1,9 @@
 package com.ssafy.rualone.domain.member.application;
 
-import com.ssafy.rualone.domain.member.dto.Member;
+import com.ssafy.rualone.domain.member.entity.Member;
 import com.ssafy.rualone.domain.member.dto.request.MemberCreateRequest;
+import com.ssafy.rualone.domain.member.dto.request.MemberLoginRequest;
 import com.ssafy.rualone.domain.member.dto.request.MemberModifyRequest;
-import com.ssafy.rualone.domain.member.dto.request.MemberUpdateRequest;
-import com.ssafy.rualone.domain.member.dto.response.MemberResponse;
-
-import java.util.Optional;
 
 public interface MemberService {
     int checkLoginId(String loginId);
@@ -14,4 +11,6 @@ public interface MemberService {
     Member findById(String loginId);
     void modify(MemberModifyRequest memberModifyRequest);
     void delete(String loginId);
+
+    Member login(MemberLoginRequest memberLoginRequest);
 }

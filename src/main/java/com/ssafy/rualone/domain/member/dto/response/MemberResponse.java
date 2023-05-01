@@ -1,8 +1,10 @@
 package com.ssafy.rualone.domain.member.dto.response;
 
-import com.ssafy.rualone.domain.member.dto.Member;
+import com.ssafy.rualone.domain.member.entity.Member;
 import lombok.Getter;
+import lombok.ToString;
 
+@ToString
 @Getter
 public class MemberResponse {
     private Long id;

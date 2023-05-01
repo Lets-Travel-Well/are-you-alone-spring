@@ -1,11 +1,10 @@
 package com.ssafy.rualone.domain.member.application;
 
 import com.ssafy.rualone.domain.member.dao.MemberMapper;
-import com.ssafy.rualone.domain.member.dto.Member;
+import com.ssafy.rualone.domain.member.entity.Member;
 import com.ssafy.rualone.domain.member.dto.request.MemberCreateRequest;
+import com.ssafy.rualone.domain.member.dto.request.MemberLoginRequest;
 import com.ssafy.rualone.domain.member.dto.request.MemberModifyRequest;
-import com.ssafy.rualone.domain.member.dto.request.MemberUpdateRequest;
-import com.ssafy.rualone.domain.member.dto.response.MemberResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class MemberServiceImpl implements  MemberService{
+public class MemberServiceImpl implements MemberService {
 
     private final MemberMapper memberMapper;
 
@@ -44,5 +43,11 @@ public class MemberServiceImpl implements  MemberService{
     @Override
     public void delete(String loginId) {
         memberMapper.delete(loginId);
+    }
+
+    @Override
+    public Member login(MemberLoginRequest memberLoginRequest) {
+        Member loginMember = memberLoginRequest.ToEntity();
+        return memberMapper.login(loginMember);
     }
 }

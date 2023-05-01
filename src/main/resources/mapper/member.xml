@@ -51,6 +51,18 @@
         where login_id = #{loginId}
     </delete>
 
+    <select id="login" parameterType="member" resultMap="member">
+        select id,
+               login_id,
+               name,
+               email, domain, footage
+        from member
+        where login_id = #{loginId}
+          and password=#{password}
+    </select>
+
+
+
     <!--	-->
     <!--	&lt;!&ndash; ADMIN &ndash;&gt;-->
     <!--	<select id="listMember" resultMap="memberAll">-->

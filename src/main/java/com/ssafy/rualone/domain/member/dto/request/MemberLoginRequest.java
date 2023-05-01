@@ -4,25 +4,19 @@ import com.ssafy.rualone.domain.member.entity.Member;
 import lombok.*;
 
 @Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class MemberCreateRequest {
+public class MemberLoginRequest {
     private String loginId;
-    private String name;
     private String password;
-    private String hashCode;
-    private String email;
-    private String domain;
-    public Member toEntity(){
+
+    public Member ToEntity() {
         return Member.builder()
                 .loginId(loginId)
-                .name(name)
                 .password(password)
-                .hashCode(hashCode)
-                .email(email)
-                .domain(domain)
                 .build();
     }
 }
