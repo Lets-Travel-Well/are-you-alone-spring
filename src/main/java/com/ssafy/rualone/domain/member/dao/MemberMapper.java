@@ -1,13 +1,14 @@
 package com.ssafy.rualone.domain.member.dao;
 
-import com.ssafy.rualone.domain.member.dto.Member;
+import com.ssafy.rualone.domain.member.entity.Member;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.Optional;
 @Mapper
 public interface MemberMapper {
+    int checkLoginId(String loginId);
     void join(Member member);
-    Optional<Member> findById(Long id);
-    Member modify(Member member);
-    void delete(Long id);
+    Member findByLoginId(String loginId);
+    void modify(Member member);
+    void delete(String loginId);
+    Member login(Member member);
 }

@@ -1,6 +1,6 @@
 package com.ssafy.rualone.domain.member.dto.request;
 
-import com.ssafy.rualone.domain.member.dto.Member;
+import com.ssafy.rualone.domain.member.entity.Member;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
@@ -10,12 +10,14 @@ import lombok.NoArgsConstructor;
 @Builder
 public class MemberUpdateRequest {
     private Long id;
+    private String loginId;
     private String password;
     private String hashCode;
     private String email;
     private String domain;
     public Member toEntity(){
         return Member.builder()
+                .loginId(loginId)
                 .password(password)
                 .hashCode(hashCode)
                 .email(email)

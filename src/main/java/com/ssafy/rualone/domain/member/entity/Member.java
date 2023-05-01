@@ -1,4 +1,4 @@
-package com.ssafy.rualone.domain.member.dto;
+package com.ssafy.rualone.domain.member.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

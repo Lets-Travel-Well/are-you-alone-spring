@@ -1,62 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ssafy.rualone.domain.member.dao.MemberMapper">
-	<resultMap type="member" id="member">
-		<result column="id" property="id"/>
-		<result column="login_id" property="loginId"/>
-		<result column="name" property="name"/>
-		<result column="password" property="password"/>
-		<result column="hashCode" property="hashCode"/>
-		<result column="email" property="email"/>
-		<result column="domain" property="domain"/>
-		<result column="footage" property="footage"/>
-	</resultMap>
 
-<!--	<select id="idCheck" parameterType="String" resultType="int">-->
-<!--		select count(user_id)-->
-<!--		from members-->
-<!--		where user_id = #{userid}-->
-<!--	</select>-->
+    <resultMap type="member" id="member">
+        <result column="id" property="id"/>
+        <result column="login_id" property="loginId"/>
+        <result column="name" property="name"/>
+        <result column="password" property="password"/>
+        <result column="hashCode" property="hashCode"/>
+        <result column="email" property="email"/>
+        <result column="domain" property="domain"/>
+        <result column="footage" property="footage"/>
+    </resultMap>
 
-	<insert id="join" parameterType="member">
-		insert into member (login_id, name, password,  hashCode, email, domain)
-		values ( #{loginId}, #{name}, #{password}, #{hashCode}, #{email}, #{domain})
-	</insert>
+    	<select id="checkLoginId" parameterType="String" resultType="int">
+    		select count(login_id)
+    		from member
+    		where login_id = #{loginId}
+    	</select>
 
-<!--	<select id="loginMember" parameterType="map" resultMap="member">-->
-<!--		select user_id, user_name-->
-<!--		from members-->
-<!--		where user_id = #{userid} and user_password = #{userpwd}-->
-<!--	</select>-->
-<!--	-->
-<!--	&lt;!&ndash; ADMIN &ndash;&gt;-->
-<!--	<select id="listMember" resultMap="memberAll">-->
-<!--		select user_name, user_id, user_password, email_id, email_domain, join_date-->
-<!--		from members-->
-<!--		order by join_date-->
-<!--	</select>-->
-<!--	-->
-<!--	<select id="getMember" parameterType="string" resultMap="memberAll">-->
-<!--		select user_id, user_name, user_password, email_id, email_domain, join_date-->
-<!--		from members-->
-<!--		where user_id = #{userId}-->
-<!--	</select>-->
-<!--	-->
-<!--	<update id="updateMember" parameterType="memberDto">-->
-<!--		update members-->
-<!--		<trim prefix="set" suffixOverrides=",">-->
-<!--			<if test="userPwd != null">user_password = #{userPwd},</if>-->
-<!--			<if test="emailId != null">email_id = #{emailId},</if>-->
-<!--			<if test="emailDomain != null">email_domain = #{emailDomain},</if>-->
-<!--		</trim>-->
-<!--		where user_id = #{userId}-->
-<!--	</update>-->
-<!--	-->
-<!--	<delete id="deleteMember" parameterType="String">-->
-<!--		delete from members-->
-<!--		where user_id = #{userId}-->
-<!--	</delete>-->
-	
+    <insert id="join" parameterType="member">
+        insert into member (login_id, name, password, hashCode, email, domain)
+        values (#{loginId}, #{name}, #{password}, #{hashCode}, #{email}, #{domain})
+    </insert>
+
+    <select id="findByLoginId" parameterType="string" resultMap="member">
+        select *
+        from member
+        where login_id = #{loginId}
+    </select>
+
+    <update id="modify" parameterType="member">
+        update member
+        set
+            id=#{id},
+            login_id = #{loginId},
+            name =#{name},
+            password = #{password},
+            hashCode = #{hashCode},
+            email    = #{email},
+            domain = #{domain},
+            footage = #{footage}
+        where login_id = #{loginId}
+    </update>
+
+    <delete id="delete" parameterType="String">
+        delete from member
+        where login_id = #{loginId}
+    </delete>
+
+    <select id="login" parameterType="member" resultMap="member">
+        select id,
+               login_id,
+               name,
+               email, domain, footage
+        from member
+        where login_id = #{loginId}
+          and password=#{password}
+    </select>
+
+
+
+    <!--	-->
+    <!--	&lt;!&ndash; ADMIN &ndash;&gt;-->
+    <!--	<select id="listMember" resultMap="memberAll">-->
+    <!--		select user_name, user_id, user_password, email_id, email_domain, join_date-->
+    <!--		from members-->
+    <!--		order by join_date-->
+    <!--	</select>-->
+    <!--	-->
+    <!--	<select id="getMember" parameterType="string" resultMap="memberAll">-->
+    <!--		select user_id, user_name, user_password, email_id, email_domain, join_date-->
+    <!--		from members-->
+    <!--		where user_id = #{userId}-->
+    <!--	</select>-->
+    <!--	-->
+
+    <!--	-->
+
+
 </mapper>
