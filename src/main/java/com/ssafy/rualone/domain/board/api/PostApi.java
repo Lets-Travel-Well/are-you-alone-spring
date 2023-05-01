@@ -22,14 +22,13 @@ public class PostApi {
     private final PostService postService;
 
     @PostMapping()
-    public ResponseEntity<PostResponse> save(@RequestBody PostCreateRequest postCreateRequest) throws Exception {
+    public ResponseEntity<Void> save(@RequestBody PostCreateRequest postCreateRequest) throws Exception {
         log.info("save");
         log.info(postCreateRequest.toString());
         // TODO : 멤버 완성 되면 넣기
         Long memberID = 0L;
-        PostResponse postResponse = new PostResponse(postService.save(postCreateRequest, memberID));
-        log.info(postResponse.toString());
-        return new ResponseEntity<>(postResponse, HttpStatus.OK);
+        postService.save(postCreateRequest, memberID);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
@@ -49,15 +48,17 @@ public class PostApi {
     }
 
     @PutMapping()
-    public ResponseEntity<PostResponse> modify(PostUpdateRequest postUpdateRequest){
+    public ResponseEntity<Void> modify(@RequestBody PostUpdateRequest postUpdateRequest) throws Exception {
         log.info("modify");
-        return null;
+        Long memberId = 0L;
+        postService.updatePost(postUpdateRequest, memberId);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") Long id){
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) throws Exception{
         log.info("delete");
-
-        return null;
+        postService.deletePost(id);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

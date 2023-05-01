@@ -27,4 +27,15 @@
         from post
     </select>
 
+    <update id="updatePost" parameterType="post">
+        update post
+        set subject = #{subject}, content = #{content}
+        where id = #{id}
+    </update>
+
+    <delete id="deletePost" parameterType="long">
+        delete from post
+        where id = #{id}
+    </delete>
+
 </mapper>

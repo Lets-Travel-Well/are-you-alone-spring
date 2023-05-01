@@ -10,6 +10,6 @@ public interface PostMapper {
     void save(Post post) throws Exception;
     Post findById(Long id) throws Exception;
     List<Post> findAll() throws Exception;
-//    Post updatePost(Post post) throws Exception;
-//    void deletePost(Long id) throws Exception;
+    void updatePost(Post post) throws Exception;
+    void deletePost(Long id) throws Exception;
 }

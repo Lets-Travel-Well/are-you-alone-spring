@@ -16,10 +16,8 @@ import java.util.List;
 public class PostServiceImpl implements PostService{
     private final PostMapper postMapper;
     @Override
-    public Post save(PostCreateRequest postCreateRequest, Long memberID) throws Exception {
-        Post newPost = postCreateRequest.toEntity(memberID);
-        postMapper.save(newPost);
-        return newPost;
+    public void save(PostCreateRequest postCreateRequest, Long memberID) throws Exception {
+        postMapper.save(postCreateRequest.toEntity(memberID));
     }
 
     @Override
@@ -33,12 +31,14 @@ public class PostServiceImpl implements PostService{
     }
 
     @Override
-    public Post updatePost(PostUpdateRequest postUpdateRequest) throws Exception {
-        return null;
+    public void updatePost(PostUpdateRequest postUpdateRequest, Long memberId) throws Exception {
+        Post updatePost = postUpdateRequest.toEntity(memberId);
+        log.info(updatePost.toString());
+        postMapper.updatePost(updatePost);
     }
 
     @Override
-    public void deletePost(Long id) throws Exception {
-
+    public void deletePost(Long postId) throws Exception {
+        postMapper.deletePost(postId);
     }
 }
