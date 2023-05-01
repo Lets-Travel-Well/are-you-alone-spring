@@ -117,9 +117,36 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 col-md-10 col-sm-12">
                 <h2 class="my-3 py-3 shadow-sm bg-light text-center">
-                    <mark class="orange">SSAFY 게시판 - Spring Web MVC & Spring myBatis & REST API</mark>
+                    <mark class="orange">RUALONE</mark>
                 </h2>
             </div>
+
+            <form id="form-post" method="POST" action="">
+                <div class="mb-3">
+                    <label for="subject" class="form-label">제목 : </label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="subject"
+                            name="subject"
+                    />
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">내용 : </label>
+                    <input
+                            type="text"
+                            class="form-control"
+                            id="content"
+                            name="content"
+                    />
+                </div>
+                <div class="col-auto text-center">
+                    <button type="button" id="btn-post" class="btn btn-outline-primary mb-3">
+                        버어튼
+                    </button>
+                </div>
+            </form>
+
             <div class="col-lg-8 col-md-10 col-sm-12 text-center">
 <%--                <a href="${root}/article/list?pgno=1&key=&word=">글목록</a><br>--%>
 <%--                <c:if test="${userinfo.userId eq 'admin'}">--%>
@@ -128,6 +155,21 @@
             </div>
         </div>
     </div>
+    <script>
+        document.querySelector("#btn-post").addEventListener("click", function () {
+            if (!document.querySelector("#subject").value) {
+                alert("아이디 입력!!");
+                return;
+            } else if (!document.querySelector("#content").value) {
+                alert("비밀번호 입력!!");
+                return;
+            } else {
+                let form = document.querySelector("#form-post");
+                form.setAttribute("action", "/api/board-management/post");
+                form.submit();
+            }
+        });
+    </script>
 </c:if>
 </body>
 </html>
