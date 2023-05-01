@@ -12,7 +12,11 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+  messages:
+    basename: i18n/messages
+    encoding: UTF-8
+    cache-duration: PT1H
 
 mybatis:
   mapper-locations: mapper/**/*.xml
-#  type-aliases-package:
+  type-aliases-package: com.ssafy.rualone.domain.*
