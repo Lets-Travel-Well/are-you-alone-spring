@@ -1,8 +1,7 @@
 package com.ssafy.rualone.domain.board.dto.request;
 
-import com.ssafy.rualone.domain.board.Post;
+import com.ssafy.rualone.domain.board.entity.Post;
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 @Getter

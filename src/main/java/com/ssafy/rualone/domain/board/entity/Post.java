@@ -1,4 +1,4 @@
-package com.ssafy.rualone.domain.board;
+package com.ssafy.rualone.domain.board.entity;
 
 import lombok.Builder;
 import lombok.Getter;
