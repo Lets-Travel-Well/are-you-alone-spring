@@ -47,23 +47,23 @@
                         <label class="form-check-label" for="saveid"> 아이디저장 </label>
                     </div>
                     <div class="mb-3">
-                        <label for="userid" class="form-label">아이디 : </label>
+                        <label for="loginId" class="form-label">아이디 : </label>
                         <input
                                 type="text"
                                 class="form-control"
-                                id="userid"
-                                name="userid"
+                                id="loginId"
+                                name="loginId"
                                 placeholder="아이디..."
                                 value="${saveid}"
                         />
                     </div>
                     <div class="mb-3">
-                        <label for="userpwd" class="form-label">비밀번호 : </label>
+                        <label for="password" class="form-label">비밀번호 : </label>
                         <input
                                 type="password"
                                 class="form-control"
-                                id="userpwd"
-                                name="userpwd"
+                                id="password"
+                                name="password"
                                 placeholder="비밀번호..."
                         />
                     </div>
@@ -93,15 +93,15 @@
         });
 
         document.querySelector("#btn-login").addEventListener("click", function () {
-            if (!document.querySelector("#userid").value) {
+            if (!document.querySelector("#loginId").value) {
                 alert("아이디 입력!!");
                 return;
-            } else if (!document.querySelector("#userpwd").value) {
+            } else if (!document.querySelector("#password").value) {
                 alert("비밀번호 입력!!");
                 return;
             } else {
                 let form = document.querySelector("#form-login");
-                form.setAttribute("action", "${root}/user/login");
+                form.setAttribute("action", "/login");
                 form.submit();
             }
         });
@@ -109,24 +109,25 @@
 </c:if>
 
 
-<%--<c:if test="${not empty userinfo}">--%>
-<%--    <div class="container">--%>
-<%--        <!-- 로그인 사용자 정보(로그아웃) 출력 -->--%>
+<c:if test="${not empty userInfo}">
+    <div class="container">
+        <div>${userInfo.loginId} ${userInfo.name}</div>
+        <!-- 로그인 사용자 정보(로그아웃) 출력 -->
 <%--        <%@ include file="/WEB-INF/views/common/confirm.jsp" %>--%>
-<%--        <div class="row justify-content-center">--%>
-<%--            <div class="col-lg-8 col-md-10 col-sm-12">--%>
-<%--                <h2 class="my-3 py-3 shadow-sm bg-light text-center">--%>
-<%--                    <mark class="orange">SSAFY 게시판 - Spring Web MVC & Spring myBatis & REST API</mark>--%>
-<%--                </h2>--%>
-<%--            </div>--%>
-<%--            <div class="col-lg-8 col-md-10 col-sm-12 text-center">--%>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <h2 class="my-3 py-3 shadow-sm bg-light text-center">
+                    <mark class="orange">SSAFY 게시판 - Spring Web MVC & Spring myBatis & REST API</mark>
+                </h2>
+            </div>
+            <div class="col-lg-8 col-md-10 col-sm-12 text-center">
 <%--                <a href="${root}/article/list?pgno=1&key=&word=">글목록</a><br>--%>
 <%--                <c:if test="${userinfo.userId eq 'admin'}">--%>
 <%--                    <a href="list.html">회원목록</a><br />--%>
 <%--                </c:if>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</c:if>--%>
+            </div>
+        </div>
+    </div>
+</c:if>
 </body>
 </html>
