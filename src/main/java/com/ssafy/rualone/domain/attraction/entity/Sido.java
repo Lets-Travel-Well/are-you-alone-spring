@@ -6,8 +6,8 @@ import lombok.*;
 @Getter
 @ToString
 @Builder
-public class Gugun {
-	private int gugunCode;
-	private String gugunName;
+public class Sido {
 	private int sidoCode;
+	private String sidoName;
+
 }
