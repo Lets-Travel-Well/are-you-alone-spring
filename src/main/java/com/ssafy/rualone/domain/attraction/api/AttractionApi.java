@@ -28,6 +28,8 @@ public class AttractionApi {
     public ApiResult<List<AttractionInfoResponse>> getAttraction(@RequestParam(value="sidoCode", required=false) String sidoCode,
                                                                  @RequestParam(value="gugunCode", required=false) String gugunCode,
                                                                  @RequestParam(value="contentTypeId", required=false) String contentTypeId){
+        log.info("attraction");
+        log.info(sidoCode.toString());
         return OK(attractionService.findAllByCriteria(sidoCode, gugunCode, contentTypeId).stream()
                 .map(AttractionInfoResponse::new)
                 .collect(Collectors.toList()));
@@ -38,6 +40,8 @@ public class AttractionApi {
     }
     @GetMapping("/gugun/{sidoCode}")
     public ApiResult<List<Gugun>> getGugun(@PathVariable int sidoCode) {
+        log.info("gugun");
+        log.info(String.valueOf(sidoCode));
         return OK(attractionService.findGugunBySido(sidoCode));
     }
 }

@@ -25,7 +25,7 @@
                 <li class="nav-item"><a class="nav-link active" id="board" type="button"
                 >게시판</a></li>
                 <li class="nav-item"><a type="button"
-                                        class="nav-link active disableBtn" id="attraction"
+                                        class="nav-link active disableBtn" id="attraction" href="/journey/search"
                 >관광지 검색</a></li>
             </ul>
 
