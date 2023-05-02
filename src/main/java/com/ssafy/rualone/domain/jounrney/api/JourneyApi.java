@@ -1,18 +1,19 @@
 package com.ssafy.rualone.domain.jounrney.api;
 
 import com.ssafy.rualone.domain.attraction.application.AttractionService;
-import com.ssafy.rualone.domain.attraction.entity.AttractionInfo;
 import com.ssafy.rualone.domain.jounrney.application.JourneyService;
 import com.ssafy.rualone.domain.jounrney.dto.request.JourneyCreateRequest;
 import com.ssafy.rualone.domain.jounrney.dto.request.JourneyPlacePathCreateRequest;
+import com.ssafy.rualone.domain.jounrney.dto.request.JourneyPlacePathDto;
 import com.ssafy.rualone.domain.jounrney.dto.response.JourneyPlacePathResponse;
-import com.ssafy.rualone.domain.jounrney.entity.Journey;
 import com.ssafy.rualone.global.api.ApiResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static com.ssafy.rualone.global.api.ApiResult.OK;
 
@@ -25,12 +26,11 @@ public class JourneyApi {
     private final AttractionService attractionService;
 
     @PostMapping("/journey/path")
-    public ApiResult<List<JourneyPlacePathResponse>> findShortestPath(@RequestBody List<JourneyPlacePathCreateRequest> journeyPlacePathCreateRequest){
-        for(JourneyPlacePathCreateRequest temp : journeyPlacePathCreateRequest){
-            AttractionInfo t =  attractionService.findByContentId(temp.getContentId());
-            log.info(t.toString());
-        }
-        return OK(null);
+    public ApiResult<List<JourneyPlacePathDto>> findShortestPath(@RequestBody List<JourneyPlacePathCreateRequest> journeyPlacePathCreateRequest){
+        List<JourneyPlacePathDto> journeyPlacePathDto = journeyPlacePathCreateRequest.stream()
+                .map(temp -> new JourneyPlacePathDto(attractionService.findByContentId(temp.getContentId())))
+                .collect(Collectors.toList());
+        return OK(journeyService.findShortestPath(journeyPlacePathDto));
     }
 
     @PostMapping("/journey")
