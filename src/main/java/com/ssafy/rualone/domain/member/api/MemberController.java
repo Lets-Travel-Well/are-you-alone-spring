@@ -15,20 +15,22 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
-//Todo : MemberController request 명칭
-@RequestMapping("/user")
 @RequiredArgsConstructor
 @Slf4j
 public class MemberController {
 
     private final MemberService memberService;
+    @GetMapping("/")
+    public String index(){
+        return "index";
+    }
 
     @PostMapping("/login")
     public String login(MemberLoginRequest memberLoginRequest, HttpSession session){
+        log.info(memberLoginRequest.toString());
         MemberResponse loginInfo = new MemberResponse(memberService.login(memberLoginRequest));
         session.setAttribute("userInfo",loginInfo);
-        log.info(loginInfo.toString());
-        return "/";
+        return "redirect:/";
     }
 
     @GetMapping("logout")

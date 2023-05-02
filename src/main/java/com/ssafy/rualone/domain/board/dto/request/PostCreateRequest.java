@@ -2,9 +2,11 @@ package com.ssafy.rualone.domain.board.dto.request;
 
 import com.ssafy.rualone.domain.board.Post;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 @Getter
+@Setter
 @ToString
 public class PostCreateRequest {
     private String subject;
