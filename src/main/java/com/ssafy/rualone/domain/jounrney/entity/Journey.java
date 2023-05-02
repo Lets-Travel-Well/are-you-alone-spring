@@ -13,8 +13,10 @@ import java.time.LocalDateTime;
 public class Journey {
     private Long id;
     private Long leaderId;
+    private String subject;
+    private String content;
     private boolean visibility;
     private int travelersCnt;
-    private LocalDateTime deadLine;
-    private LocalDateTime startDay;
+    private String deadLine;
+    private String startDay;
 }

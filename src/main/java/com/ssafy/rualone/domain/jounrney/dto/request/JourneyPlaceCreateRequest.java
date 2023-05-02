@@ -12,4 +12,5 @@ public class JourneyPlaceCreateRequest {
     int order;
     // TODO : 시간을 볼 수 있어야되기때문에 LocalDate로 바꿔야함,
     String tripDay;
+    String content;
 }

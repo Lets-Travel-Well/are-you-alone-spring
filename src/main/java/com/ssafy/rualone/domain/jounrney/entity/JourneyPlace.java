@@ -10,5 +10,8 @@ import lombok.ToString;
 @Builder
 public class JourneyPlace {
     private Long id;
+    private int contentId;
     private int order;
+    private String content;
+    private String tripDay;
 }

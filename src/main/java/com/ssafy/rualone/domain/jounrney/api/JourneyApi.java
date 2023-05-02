@@ -36,6 +36,8 @@ public class JourneyApi {
     @PostMapping("/journey")
     public ApiResult<Void> createJourney(@RequestBody JourneyCreateRequest journeyCreateRequest){
         log.info(journeyCreateRequest.toString());
+        Long memberId = 0L;
+        journeyService.save(journeyCreateRequest, memberId);
         return OK(null);
     }
 }
