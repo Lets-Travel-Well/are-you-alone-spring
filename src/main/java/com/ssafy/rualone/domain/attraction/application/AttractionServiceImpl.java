@@ -18,7 +18,7 @@ public class AttractionServiceImpl implements AttractionService{
 
     @Override
     public List<AttractionInfo> findAllByCriteria(String sidoCode, String gugunCode, String contentTypeId) {
-        return null;
+        return attractionMapper.findAllByCriteria(sidoCode, gugunCode, contentTypeId);
     }
     @Override
     public List<Sido> findSido() {
