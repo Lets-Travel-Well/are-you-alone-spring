@@ -22,7 +22,7 @@
                 </li>
                 <%--                <li class="nav-item"><a class="nav-link active"--%>
                 <%--                                        href="javascript:alert('준비중입니다.');">문의사항</a></li>--%>
-                <li class="nav-item"><a class="nav-link active" id="board" type="button"
+                <li class="nav-item"><a class="nav-link active" id="board" type="button" href="/post"
                 >게시판</a></li>
                 <li class="nav-item"><a type="button"
                                         class="nav-link active disableBtn" id="attraction"
