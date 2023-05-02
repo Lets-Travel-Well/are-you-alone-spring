@@ -1,6 +1,6 @@
 package com.ssafy.rualone.domain.board.application;
 
-import com.ssafy.rualone.domain.board.Post;
+import com.ssafy.rualone.domain.board.entity.Post;
 import com.ssafy.rualone.domain.board.dto.request.PostCreateRequest;
 import com.ssafy.rualone.domain.board.dto.request.PostUpdateRequest;
 
