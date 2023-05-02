@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+<c:set var="root" value="${pageContext.request.contextPath}" />
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -25,7 +25,7 @@
                 <li class="nav-item"><a class="nav-link active" id="board" type="button"
                 >게시판</a></li>
                 <li class="nav-item"><a
-                        class="nav-link active disableBtn" id="mypage" type="button" href="./user/info.jsp"
+                        class="nav-link active disableBtn" id="mypage" type="button" href="/mypage"
                 >마이 페이지</a></li>
                 <li class="nav-item"><a type="button"
                                         class="nav-link active disableBtn" id="attraction"

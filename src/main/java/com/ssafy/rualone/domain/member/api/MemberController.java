@@ -26,6 +26,11 @@ public class MemberController {
         return "index";
     }
 
+    @GetMapping("/mypage")
+    public String mypage(){
+        return "user/info";
+    }
+
     @PostMapping("/login")
     public String login(MemberLoginRequest memberLoginRequest, HttpSession session){
         MemberResponse loginInfo = new MemberResponse(memberService.login(memberLoginRequest));

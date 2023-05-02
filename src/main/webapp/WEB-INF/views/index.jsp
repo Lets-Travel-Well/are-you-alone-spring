@@ -9,10 +9,6 @@
 <body>
 <%@include file="./common/nav.jsp"%>
 
-<c:if test="${empty userInfo}">
-<%--    <%@include file="user/loginModal.jsp"%>--%>
-</c:if>
-
 <c:if test="${not empty userInfo}">
 <%--    <div class="container">--%>
 <%--        <div>${userInfo.loginId} ${userInfo.name}</div>--%>
