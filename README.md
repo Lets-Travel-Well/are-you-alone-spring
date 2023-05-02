@@ -3,7 +3,7 @@
 ✈ 여행지 검색 페이지✈
 
 ## main page
-![메인화면](https://user-images.githubusercontent.com/91540464/235698793-a21c8c07-9330-4adf-bb3e-21e71a111d97.png
+![메인화면](https://user-images.githubusercontent.com/91540464/235698793-a21c8c07-9330-4adf-bb3e-21e71a111d97.png)
 
 서비스 메인화면  
 
