@@ -68,6 +68,13 @@
 			<artifactId>tomcat-embed-jasper</artifactId>
 		</dependency>
 
+		<!--시간 설정을 위한 라이브러리-->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-typehandlers-jsr310</artifactId>
+			<version>1.0.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
