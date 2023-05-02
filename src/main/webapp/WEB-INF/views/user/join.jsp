@@ -76,7 +76,7 @@
             </div>
 
             <div class="col-auto text-center">
-                <button type="submit" id="btn-join" class="btn btn-outline-primary mb-3">
+                <button type="button" id="btn-join" class="btn btn-outline-primary mb-3">
                     회원가입
                 </button>
                 <button type="button" id="btn-reset" class="btn btn-outline-success mb-3">초기화</button>
@@ -130,15 +130,15 @@
     });
 
     document.querySelector("#btn-join").addEventListener("click",function(){
-        let form = document.getElementById("#form_join");
         let data = {
             "name" : document.getElementById("username").value,
             "loginId" : document.getElementById("userId").value,
             "password" : document.getElementById("pwd").value,
             "email" : document.getElementById("email").value,
-            "domain" : document.getElementById("domain").value
+            "domain" : document.getElementById("domain").value,
+            "hash": 0
         };
-
+        console.log(data);
         fetch("/api/user-management/join",{
             method:"POST",
             headers:{
