@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -27,14 +28,14 @@ public class MemberController {
 
     @PostMapping("/login")
     public String login(MemberLoginRequest memberLoginRequest, HttpSession session){
-        log.info(memberLoginRequest.toString());
         MemberResponse loginInfo = new MemberResponse(memberService.login(memberLoginRequest));
         session.setAttribute("userInfo",loginInfo);
         return "redirect:/";
     }
 
-    @GetMapping("logout")
-    public String logout(HttpSession session){
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest httpServletRequest){
+        HttpSession session = httpServletRequest.getSession();
         session.invalidate();
         return "redirect:/";
     }
