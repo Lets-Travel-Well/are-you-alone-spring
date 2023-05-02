@@ -4,6 +4,7 @@ import com.ssafy.rualone.domain.member.entity.Member;
 import lombok.*;
 
 @Getter
+@Setter
 @Builder
 @ToString
 @NoArgsConstructor

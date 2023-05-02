@@ -57,13 +57,23 @@
 <div id="login_modal"style="display:none">
 	<%@include file="../user/login.jsp"%>
 </div>
+<div id="join_modal"style="display:none">
+    <%@include file="../user/join.jsp"%>
+</div>
 <script>
 	document.querySelector("#btn_login").addEventListener("click", function () {
 		document.getElementById("login_modal").style.display= "block";
 	});
-	document.querySelector("#btn_modal_close").addEventListener("click", function () {
+	document.querySelector("#btn_login_modal_close").addEventListener("click", function () {
 		document.getElementById("login_modal").style.display= "none";
 	});
+    document.querySelector("#btn_join").addEventListener("click", function () {
+        document.getElementById("join_modal").style.display= "block";
+    });
+    document.querySelector("#btn_join_modal_close").addEventListener("click", function () {
+        document.getElementById("join_modal").style.display= "none";
+        resetForm();
+    });
 </script>
 
 <%--<script>--%>

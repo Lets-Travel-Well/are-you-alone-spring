@@ -24,6 +24,7 @@ public class MemberApi {
     }
     @PostMapping("/join")
     public ResponseEntity<Void> join(@RequestBody MemberCreateRequest memberCreateRequest){
+        log.info(memberCreateRequest.toString());
         memberService.join(memberCreateRequest);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

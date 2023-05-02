@@ -7,7 +7,6 @@
 		<c:set var="saveid" value="${cookie.ssafy_id.value}"/>
 	</c:if>
       <div class="row justify-content-center">
-        <div><button id = "btn_modal_close">닫기 버튼</button></div>
         <div class="col-lg-8 col-md-10 col-sm-12">
           <h2 class="my-3 py-3 shadow-sm bg-light text-center">
             <mark class="orange">로그인</mark>
@@ -55,6 +54,7 @@
               <button type="button" id="btn-mv-join" class="btn btn-outline-success mb-3">회원가입</button>
             </div>
           </form>
+          <div><button id = "btn_login_modal_close">닫기 버튼</button></div>
         </div>
       </div>
     </div>
