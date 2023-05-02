@@ -147,7 +147,7 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data)
-            }).then(response => location.href = "/");
+            }).then(response => location.href = "/logout");
         }
     })
 
@@ -156,7 +156,12 @@
     			if (confirm("정말로 탈퇴하시겠습니까??")) {
     				if (confirm("진짜로 탈퇴하시겠습니까??")) {
     					let userid = document.getElementById("inputId").value;
-    					location.href = "${root}/user?action=delete&userid="+userid;
+						fetch("/api/user-management/user/"+ document.getElementById("inputId").value, {
+							method: "delete",
+							headers: {
+								"Content-Type": "application/json",
+							}
+						}).then(response => location.href="/logout");
     				}
     			}
     		});
