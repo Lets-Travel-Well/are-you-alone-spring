@@ -4,6 +4,8 @@ import com.ssafy.rualone.domain.attraction.dao.AttractionMapper;
 import com.ssafy.rualone.domain.attraction.entity.AttractionInfo;
 import com.ssafy.rualone.domain.attraction.entity.Gugun;
 import com.ssafy.rualone.domain.attraction.entity.Sido;
+import com.ssafy.rualone.domain.board.entity.Post;
+import com.ssafy.rualone.global.error.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,12 @@ import java.util.List;
 @Slf4j
 public class AttractionServiceImpl implements AttractionService{
     private final AttractionMapper attractionMapper;
+
+
+    @Override
+    public AttractionInfo findByContentId(int contentId) {
+        return attractionMapper.findByContentId(contentId).orElseThrow(() -> new NotFoundException(Post.class, contentId));
+    }
 
     @Override
     public List<AttractionInfo> findAllByCriteria(String sidoCode, String gugunCode, String contentTypeId) {

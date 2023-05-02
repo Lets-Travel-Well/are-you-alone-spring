@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssafy.rualone.domain.jounrney.dao.JourneyMapper">
+
+    <resultMap type="journey" id="journey">
+        <result column="id" property="id"/>
+        <result column="leader_Id" property="leaderId"/>
+        <result column="subject" property="subject"/>
+        <result column="content" property="content"/>
+        <result column="visibility" property="visibility"/>
+        <result column="travelers_cnt" property="travelersCnt"/>
+        <result column="dead_line" property="deadLine"/>
+        <result column="start_day" property="startDay"/>
+    </resultMap>
+    <insert id="save" parameterType="journey">
+        insert into journey (leader_Id, subject, content, visibility, travelers_cnt, dead_line, start_day)
+        values (#{leaderId}, #{subject}, #{content}, #{visibility}, #{travelersCnt}, #{deadLine}, #{startDay})
+    </insert>
+</mapper>

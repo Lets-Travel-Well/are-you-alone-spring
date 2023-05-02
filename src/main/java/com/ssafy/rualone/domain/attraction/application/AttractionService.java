@@ -7,6 +7,7 @@ import com.ssafy.rualone.domain.attraction.entity.Sido;
 import java.util.List;
 
 public interface AttractionService {
+    AttractionInfo findByContentId(int contentId);
     List<AttractionInfo> findAllByCriteria(String sidoCode, String gugunCode, String contentTypeId);
     List<Sido> findSido();
     List<Gugun> findGugunBySido(int sidoCode);
