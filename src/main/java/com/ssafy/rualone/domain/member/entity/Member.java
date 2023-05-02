@@ -1,16 +1,13 @@
 package com.ssafy.rualone.domain.member.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 @Getter
-@Setter
 @ToString
 @NoArgsConstructor
-@SuperBuilder
+@Builder
+@AllArgsConstructor
 public class Member {
     private Long id;
     private String loginId;

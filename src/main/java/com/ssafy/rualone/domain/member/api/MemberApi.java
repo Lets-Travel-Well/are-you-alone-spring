@@ -24,6 +24,7 @@ public class MemberApi {
     }
     @PostMapping("/join")
     public ResponseEntity<Void> join(@RequestBody MemberCreateRequest memberCreateRequest){
+        log.info(memberCreateRequest.toString());
         memberService.join(memberCreateRequest);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
@@ -34,6 +35,7 @@ public class MemberApi {
     }
     @PutMapping("/modify")
     public ResponseEntity<Void> modify(@RequestBody MemberModifyRequest memberModifyRequest){
+        log.info(memberModifyRequest.toString());
         memberService.modify(memberModifyRequest);
         return new ResponseEntity<Void>(HttpStatus.OK);
     }

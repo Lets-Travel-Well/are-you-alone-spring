@@ -34,14 +34,8 @@
 
     <update id="modify" parameterType="member">
         update member
-        set id=#{id},
-            login_id = #{loginId},
-            name =#{name},
-            password = #{password},
-            hashCode = #{hashCode},
-            email = #{email},
-            domain = #{domain},
-            footage = #{footage}
+        set email = #{email},
+            domain = #{domain}
         where login_id = #{loginId}
     </update>
 
