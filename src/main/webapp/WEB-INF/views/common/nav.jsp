@@ -20,12 +20,12 @@
                                         aria-current="page" id="notification"
                                         href="javascript:alert('준비중입니다.');">공지사항</a>
                 </li>
-                <li class="nav-item"><a class="nav-link active"
-                                        href="javascript:alert('준비중입니다.');">문의사항</a></li>
+<%--                <li class="nav-item"><a class="nav-link active"--%>
+<%--                                        href="javascript:alert('준비중입니다.');">문의사항</a></li>--%>
                 <li class="nav-item"><a class="nav-link active" id="board" type="button"
                 >게시판</a></li>
                 <li class="nav-item"><a
-                        class="nav-link active disableBtn" id="mypage" type="button"
+                        class="nav-link active disableBtn" id="mypage" type="button" href="./user/info.jsp"
                 >마이 페이지</a></li>
                 <li class="nav-item"><a type="button"
                                         class="nav-link active disableBtn" id="attraction"

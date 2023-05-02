@@ -1,5 +1,4 @@
 
-
 <%--<c:if test="${cookie.ssafy_id.value ne null}">--%>
 <%--    <c:set var="idck" value=" checked"/>--%>
 <%--    <c:set var="saveid" value="${cookie.ssafy_id.value}"/>--%>
@@ -13,7 +12,6 @@
 <c:if test="${empty userInfo}">
 <%--    <%@include file="user/loginModal.jsp"%>--%>
 </c:if>
-
 
 <c:if test="${not empty userInfo}">
 <%--    <div class="container">--%>
