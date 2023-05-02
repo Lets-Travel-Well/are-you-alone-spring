@@ -147,7 +147,10 @@
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify(data)
-            }).then(response => location.href = "/logout");
+            }).then(response => {
+				alert("다시 로그인해주세요.");
+				location.href = "/logout"
+			});
         }
     })
 
@@ -161,7 +164,10 @@
 							headers: {
 								"Content-Type": "application/json",
 							}
-						}).then(response => location.href="/logout");
+						}).then(response => {
+							alert("탈퇴가 완료되었습니다.");
+							location.href="/logout"
+						});
     				}
     			}
     		});

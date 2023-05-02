@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="root" value="${pageContext.request.contextPath}" />
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
@@ -20,13 +20,10 @@
                                         aria-current="page" id="notification"
                                         href="javascript:alert('준비중입니다.');">공지사항</a>
                 </li>
-<%--                <li class="nav-item"><a class="nav-link active"--%>
-<%--                                        href="javascript:alert('준비중입니다.');">문의사항</a></li>--%>
+                <%--                <li class="nav-item"><a class="nav-link active"--%>
+                <%--                                        href="javascript:alert('준비중입니다.');">문의사항</a></li>--%>
                 <li class="nav-item"><a class="nav-link active" id="board" type="button"
                 >게시판</a></li>
-                <li class="nav-item"><a
-                        class="nav-link active disableBtn" id="mypage" type="button" href="/mypage"
-                >마이 페이지</a></li>
                 <li class="nav-item"><a type="button"
                                         class="nav-link active disableBtn" id="attraction"
                 >관광지 검색</a></li>
@@ -39,39 +36,40 @@
                         class="btn btn-outline me-2" id="btn_join" type="button"
                         style="width: 180px"> 회원가입 </a>
                 </form>
-				<script>
-					document.querySelector("#btn_login").addEventListener("click", function () {
-						document.getElementById("login_modal").style= "block";
-					});
-				</script>
+                <script>
+                    document.querySelector("#btn_login").addEventListener("click", function () {
+                        document.getElementById("login_modal").style = "block";
+                    });
+                </script>
 
             </c:if>
             <c:if test="${not empty userInfo}">
-                <a
-                        class="btn btn-outline me-2" href="/logout"
+                <a class="nav-link active disableBtn" id="mypage" type="button" href="/mypage"
+                >마이 페이지</a>
+                <a class="btn btn-outline me-2" href="/logout"
                         id="btn_logout" type="button" style="width: 180px"> 로그아웃 </a>
             </c:if>
         </div>
     </div>
 </nav>
-<div id="login_modal"style="display:none">
-	<%@include file="../user/login.jsp"%>
+<div id="login_modal" style="display:none">
+    <%@include file="../user/login.jsp" %>
 </div>
-<div id="join_modal"style="display:none">
-    <%@include file="../user/join.jsp"%>
+<div id="join_modal" style="display:none">
+    <%@include file="../user/join.jsp" %>
 </div>
 <script>
-	document.querySelector("#btn_login").addEventListener("click", function () {
-		document.getElementById("login_modal").style.display= "block";
-	});
-	document.querySelector("#btn_login_modal_close").addEventListener("click", function () {
-		document.getElementById("login_modal").style.display= "none";
-	});
+    document.querySelector("#btn_login").addEventListener("click", function () {
+        document.getElementById("login_modal").style.display = "block";
+    });
+    document.querySelector("#btn_login_modal_close").addEventListener("click", function () {
+        document.getElementById("login_modal").style.display = "none";
+    });
     document.querySelector("#btn_join").addEventListener("click", function () {
-        document.getElementById("join_modal").style.display= "block";
+        document.getElementById("join_modal").style.display = "block";
     });
     document.querySelector("#btn_join_modal_close").addEventListener("click", function () {
-        document.getElementById("join_modal").style.display= "none";
+        document.getElementById("join_modal").style.display = "none";
         resetForm();
     });
 </script>
