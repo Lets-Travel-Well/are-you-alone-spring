@@ -99,7 +99,7 @@
     });
 
     document.querySelector("#btn-mv-register").addEventListener("click", function () {
-        location.href = "${root}/article?action=mvwrite";
+        location.href = "/post/write";
     });
 
     document.querySelector("#btn-search").addEventListener("click", function () {
